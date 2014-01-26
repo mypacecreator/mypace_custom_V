@@ -1,0 +1,729 @@
+@charset "utf-8";
+
+/*
+Theme Name: mypace custom V(five)
+Theme URI: http://mypacecreator.net/theme/category/mypace-custom-v/
+Description: WordPress初心者のカスタム練習用テーマ'mypace custom'をHTML5でマークアップし直しました。HTML5の解釈についてはまだ怪しい感じなので、使われた方フィードバックをお待ちしています。
+Version: 1.1
+Author: Kei Nomura(@mypacecreator)
+Author URI: http://mypacecreator.net/
+License: GNU General Public License
+License URI: license.txt
+Tags: gray, Two-columns
+*/
+
+/*------------------------------------------------------------------------------
+defaut.css for WordPress
+ * Modified by Kei Nomura: 2011-07-02
+
+このCSS内では、ブラウザ毎デフォルトスタイルのリセット
+および、ほぼ変更のないであろう要素、良く使うclassのスタイル指定をしています。　
+-------------------------------------------------------------------------------*/
+
+html {
+	overflow-y: scroll;
+}
+
+article, aside, canvas, details, figcaption, figure, header,
+footer, hgroup, menu, nav, section, summary {
+	display: block;
+}
+
+body,div,dl,dt,dd,ul,ol,li,pre,form,fieldset,input,textarea,p,blockquote,th,td {
+	margin: 0;
+	padding: 0;
+}
+
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style: normal;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight: normal;
+	font-size: 100%;  
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	line-height: 1.8;
+	margin-bottom: 1em;
+}
+
+a {
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;  
+}
+
+img,abbr,acronym,fieldset,a img {
+	border: none;
+}
+
+img,li,dt,dd {
+	vertical-align: bottom;
+}
+	* html li ,
+	*:first-child+html li {
+		vertical-align: baseline;
+	}
+
+q:before,q:after {
+	content: '';
+}
+object,embed {
+	vertical-align: top;
+}
+
+ul{
+	list-style-type: none;
+}
+
+ol {
+	list-style-type: decimal;
+}
+
+ol,ul,dl {
+	margin-bottom: 1em;
+}
+
+dd {
+	margin-left: 3em;
+}
+
+/*------------------------------------------------------------------------------
+		Float
+-------------------------------------------------------------------------------*/
+
+.cl {
+	clear: both;
+}
+
+.fl_l {
+	float: left;
+	margin: 0 10px 10px 0;
+}
+
+.fl_r {
+	float: right;
+	margin: 0 0 10px 10px;
+}
+
+/*------------------------------------------------------------------------------
+		Form
+-------------------------------------------------------------------------------*/
+
+form button,
+form input[type=checkbox],
+form input[type=radio],
+form input[type=reset],
+form input[type=submit] {
+    padding:1px;
+}
+
+form input[type=check],
+form input[type=radio],
+form input[type=submit] {
+    cursor: pointer;
+}
+
+form label {
+	padding-left: 5px;
+	margin-right: 10px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+form input[type=text],
+form textarea {
+    padding: 5px;
+}
+
+form input[type=text]:hover,
+form textarea:hover,
+form input[type=text]:focus,
+form textarea:focus {
+	background-color: #FCF7C1;
+}
+
+/*------------------------------------------------------------------------------
+	基本スタイル　
+-------------------------------------------------------------------------------*/
+body {
+	background-color: #FFF;
+	color: #333;
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	font-size: 0.85em;
+}
+
+
+/*------------------------------------------------------------------------------
+	リンクカラー
+	下線はdefault.cssで消してあるので、出したいときは適宜指定すること。
+-------------------------------------------------------------------------------*/
+a:link {
+	color:#039;
+}
+a:visited {
+	color:#606;
+}
+a:hover {
+	color: #C03;
+	text-decoration: underline;
+}
+a:active {
+	color:#C00;
+}
+
+a:hover img {
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+}
+
+/*------------------------------------------------------------------------------
+	見出し
+-------------------------------------------------------------------------------*/
+h1,h2,h3,h4,h5,h6 {
+	margin-bottom: 20px;
+	clear: both;
+}
+
+h1.pagetitle {
+	font-size: large;
+	font-weight: bold;
+	line-height: 60px;
+	height: 60px;
+	padding: 5px 15px;
+	border: 5px solid #BEBEBE;
+	background-color: #F3F3F3;
+}
+
+h1.posttitle { /* 投稿のタイトル */
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 1.4;
+	padding: 10px;
+	border-bottom: 5px double #666;
+	margin: 0;
+	background-color: #FFF;
+}
+
+#commentArea h1 { /* コメントエリアの見出し */
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 1.4;
+	padding: 10px;
+	border-bottom: 5px double #666;
+	margin: 1.5em 0 1em 0;
+	background-color: #FFF;
+}
+
+h2 {
+	font-size: 1.1em;
+	font-weight: bold;
+	line-height: 2;
+	padding-left: 1em;
+	border-bottom: 3px solid #999;
+	margin: 1.5em 0 1em 0;
+	background-color: #FFF;
+}
+
+h3 {
+	font-size: 1.1em;
+	font-weight: bold;
+	line-height: 1.8;
+	padding-left: 1em;
+	border-bottom: 3px double #999;
+	margin: 1.5em 0 1em 0;
+	background-color: #FFF;
+}
+
+h4 {
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 1.8;
+	padding-left: 1em;
+	border-bottom: 2px solid #999;
+	margin: 1.5em 0 1em 0;
+	background-color: #FFF;
+}
+
+h5 {
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 1.8;
+	padding-left: 1em;
+	border-bottom: 2px solid #999;
+	margin: 1.5em 0 1em 0;
+	background-color: #FFF;
+}
+
+h6 {
+	padding-left: 1em;
+	border-bottom: 1px solid #999;
+	margin: 1.5em 0 1em 0;
+	background-color: #FFF;
+}
+
+/*------------------------------------------------------------------------------
+	レイアウトボックス
+-------------------------------------------------------------------------------*/
+/*------　wrapper　------*/
+#wrapper {
+	width: 940px;
+	margin: 0 auto;
+	border: 10px solid #DDD;
+	background-color: #FFF;
+}
+
+
+/*------　header　------*/
+#header {
+	height: 100px;
+	background-color: #999;
+	position: relative;
+}
+
+/*------　#global　------*/
+#global {
+	overflow: hidden;
+}
+
+/*------　main　------*/
+#main {
+	float: left;
+	width: 690px;
+	padding: 0 10px;
+}
+
+#main.oneColumn { /*固定ページ1カラム用*/
+	width: 920px;
+}
+
+/*------　side　------*/
+#side {
+	width: 200px;
+	background-color: #F2F2F2;
+	padding: 10px;
+	margin: 0 10px 10px 0;
+	float: right;
+	display: inline;/* for IE6 */
+}
+
+/*------　footer　------*/
+#footer {
+	background-color: #CCC;
+	clear: both;
+}
+
+/*------------------------------------------------------------------------------
+		各ボックス内の詳細指定
+-------------------------------------------------------------------------------*/
+/*------　header　------*/
+#header h1 {
+	font-size: xx-large;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+#header p {
+	color: #FFF;
+	font-size: x-small;
+	position: absolute;
+	top: 5px;
+	right: 10px;
+}
+
+/*------　#global　------*/
+.menu {
+	border-top: 5px solid #999;
+	background: #CCC;
+}
+
+ul.menu { /*　カスタムメニューon時用　*/
+	overflow: hidden;
+}
+
+.menu ul {
+	height: 40px;
+	overflow: hidden;
+}
+
+.menu li {
+	float: left;
+	text-align: center;
+	border-right: 1px dotted #FFF;
+}
+
+.menu li a{
+	line-height: 40px;
+	font-weight: bold;
+	padding: 0 2em;
+	display: block;
+	position: relative;
+}
+
+/* ドロップダウン */		
+.menu li ul {
+	position: absolute;
+	left: -9999em;
+	height: auto;
+	width: 150px;
+}
+
+.menu li li {
+	width: 150px;
+	background-color: #ECECEC;
+}
+
+.menu li li a,
+.menu li li a:visited {
+	font-weight: normal;
+	font-size: 0.9em;
+	color: #900;
+}
+
+.menu li li a:hover {
+	background-color: #FFC;
+}
+	
+.menu li:hover ul,
+.menu li li:hover ul,
+.menu li li li:hover ul {
+	left: auto;
+}
+
+/*------ article(.post)　------*/
+.post {
+	background-color: #F2F2F2;
+	padding: 10px;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.post .postdate {
+	color: #666;
+	font-size: x-small;
+	text-align: right;
+	margin-bottom: 10px;
+	display: block;
+}
+
+.hentry .postinfo {
+	color: #666;
+	font-size: x-small;
+	text-align: right;
+	clear: both;
+}
+
+.hentry table {
+	border: 1px solid #999;
+	margin-bottom: 20px;
+}
+
+.hentry table tr {
+}
+
+.hentry table th {
+	padding: 10px;
+	border: 1px solid #999;
+	background-color: #DEEAFC;
+}
+
+.hentry table td {
+	padding: 10px;
+	border: 1px solid #999;
+}
+
+blockquote {
+	background-color: #EEE;
+	border: 1px solid #999;
+	padding: 10px 15px 5px 15px;
+	margin: 0 5px 10px 5px
+}
+
+.post li,
+.type-page li {
+	line-height: 1.6;
+	margin: 0 0 0.5em 3em;
+}
+
+.post ul li,
+.type-page ul li {
+	list-style: disc;
+}
+
+.post p a,,
+.type-page p a {
+	text-decoration: underline;	
+}
+
+blockquote {
+	background-color: #F4F6FE;
+	border: 1px solid #999;
+	margin: 0.5em 1em;
+	padding: 10px 20px 10px 5px;
+}
+
+.sticky { /* 先頭に固定された投稿 */
+	border: 2px solid #DDD; 
+}
+
+/*　画像の配置　*/
+.alignnone { /*　指定なし　*/
+	padding: 4px;
+	border: 1px solid #CCC;
+	background-color: #FFF;
+}
+
+div.alignnone { /*　指定なし:キャプションあり　*/
+	margin-bottom: 10px;
+}
+
+.alignright { /*　右寄せ　*/
+	padding: 4px;
+	border: 1px solid #CCC;
+	background-color: #FFF;
+	margin: 0 0 10px 10px;
+	float: right;
+}
+
+.alignleft { /*　左寄せ　*/
+	padding: 4px;
+	border: 1px solid #CCC;
+	background-color: #FFF;
+	margin: 0 10px 10px 0;
+	float: left;
+}
+
+.aligncenter { /*　中央配置　*/
+	padding: 4px;
+	border: 1px solid #CCC;
+	background-color: #FFF;
+	margin: 0px auto 10px;
+	display: block;
+}
+
+.wp-caption { /*　位置指定した画像の枠　*/
+	text-align: center;
+}
+
+.wp-caption-text, /*　投稿内画像下のキャプション　*/
+.gallery-caption { /*　ギャラリー画像下のキャプション　*/
+	font-size: 12px;
+	line-height: 1.2;
+	color: #666;
+	margin: 0;
+}
+
+.attachment-post-thumbnail { /*　アイキャッチ画像　*/
+	padding: 4px;
+	border: 1px solid #CCC;
+	background-color: #FFF;
+	margin-bottom: 10px;
+}
+
+/*------　side　------*/
+#side h2 {
+	text-align: center;
+	padding: 0;
+	margin: 0 0 10px 0;
+}
+
+.widget {
+	margin: 0 0 10px 0;
+}
+
+.footerWidget {
+	width: 290px;
+	margin: 10px;
+	float: left;
+}
+
+.widget li {
+	font-size: small;
+	list-style: circle;
+	margin: 0 1em 0 1.5em;
+}
+
+/*------　footer　------*/
+#footer p {
+	margin: 0 10px;
+	clear: both;
+}
+
+.copyright {
+	text-align: right;
+}
+
+.credit {
+	text-align: right;
+	font-size: xx-small;
+}
+
+/*------　ページ送りナビゲーション　------*/
+
+/* アーカイブページのページャー */
+.pager {
+	padding: 1em 0;
+	margin: 0 auto 1em;
+	text-align: center;
+	font-weight: bold;
+	overflow: hidden;
+	clear: both;
+}
+
+.page-numbers {
+	background-color: #FFF;
+	padding: 5px 10px;
+	border: solid 1px #666;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.pager .current,
+a.page-numbers:hover {
+	color: #FFF;
+	background-color: #06C;
+	text-decoration: none;
+}
+
+.pager .next,
+.pager .prev {
+	padding: 0 5px;
+}
+
+
+/* singleでの前後の投稿へのリンク */
+.pagelink {
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.pageprev {
+	float: left;
+}
+
+.pagenext {
+	float: right;
+}
+
+/* singleでページ分割した場合に、表示されるページャーのスタイル*/
+.pagerSinglepage ul {
+	background-color: #FFF;
+	padding: 10px;
+	margin: 20px 10px;
+	overflow: auto;
+}
+
+.pagerSinglepage li {
+	font-weight: bold;
+	margin: 5px;
+	padding-right: 10px;
+	border-right: 1px #999999 solid;
+	list-style: none;
+	float: left;
+}
+
+/*　ページトップへ戻る　*/
+.pagetop {
+	text-align: right;
+	margin: 1em;
+	clear: both;
+}
+
+/*-----　コメント　-----*/
+#commentArea {
+	background-color: #FFF;
+}
+
+.comment {
+	background-color: #F2F2F2;
+	padding: 1em;
+	margin: 0 20px 20px 10px;
+}
+
+.bypostauthor { /* 管理人コメント */
+	background-color: #D1DFDF;
+}
+
+.commentmeta {
+	font-size: 0.8em;
+}
+
+dl.commentform {
+	margin: 0 0 1em 1em;
+}
+
+dl.commentform dt {
+	font-weight: bold;
+}
+
+dl.commentform dd {
+	margin-bottom: 1em;
+}
+
+.submitbtn {
+	margin: 10px 0 10px 4em;
+}
+
+.commentform input[type="text"],
+.commentform textarea {
+	border: 1px solid #CCC;
+	padding: 5px;
+	width: 90%;
+}
+
+.commentform input[type="text"]:focus,
+.commentform textarea:focus {
+	background-color: #FFC;
+}
+
+/*----- カレンダー（ウィジェット用） -----*/
+#wp-calendar {
+	width: 90%;
+	margin-bottom: 20px;
+	font-size: small;
+	text-align: center;
+	width: 90%;
+	/*border: thin double #999;*/
+}
+
+#wp-calendar a {
+	color: #369;
+	font-weight: bold;
+}
+
+#wp-calendar a:hover {
+	color: #F90;
+	border: none;
+}
+
+#wp-calendar td, #wp-calendar th {
+	width: 13%;
+}
+
+#wp-calendar caption {
+	padding: 6px 8px;
+	font-weight: bold;
+	color: #036;
+}
+
+#wp-calendar #prev {
+	text-align: left;
+	padding-top: 3px;
+	padding-left: 3px
+}
+
+#wp-calendar #next {
+	text-align: right;
+	padding-top: 3px;
+	padding-right: 3px
+}
